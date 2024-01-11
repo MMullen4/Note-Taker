@@ -29,8 +29,8 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
-  fetch('/api/notes', {
-    method: 'GET',
+  fetch('/api/notes', {  // url = phone#
+    method: 'GET',  // method = area code 
     headers: {
       'Content-Type': 'application/json'
     }
@@ -42,7 +42,7 @@ const saveNote = (note) =>
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(note)
+    body: JSON.stringify(note) // how the client sends the note to save
   });
 
 const deleteNote = (id) =>

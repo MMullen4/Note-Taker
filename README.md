@@ -14,25 +14,25 @@ The application is called Note Taker and can be used to write and save notes. Th
 Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.
 
 ## Support
+Please reach out to me with any questions - matt@mmcprintpackaging.com
 
 * `GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
 
 * `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
 
 ## Contributing
-
-You haven’t learned how to handle DELETE requests, but this application offers that functionality on the front end. As a bonus, try to add the DELETE route to the application using the following guideline:
+Open to suggestions.
 
 * `DELETE /api/notes/:id` should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
 
 ## Authors & Acknowledgement
-
+Myself and UCLA tutors and Bootcamp lessons
 
 ## License
-
+N/A
 
 ## Project Status
-
+Ongoing and will be updated with new/relavent info as needed.
 
 
 

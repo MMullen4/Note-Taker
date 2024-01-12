@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001; //listening port setup for Heroku or loca
 // middleware boilerplate
 app.use(express.json()); // middleware to connect JSON backend to frontend 
 app.use(express.urlencoded({ extended: true })); // allows URL coded front to back
-app.use(express.static('public')); // allows server to drop public folder 
+app.use(express.static('public')); // allow to serve assest to public folder 
 
 app.get("/api/notes", (req, res) => {  // request & response to API notes
     fs.readFile("./db/db.json", "utf-8", (err, data) => { // path, char code, and callback with err and data
@@ -20,15 +20,22 @@ app.get("/api/notes", (req, res) => {  // request & response to API notes
 })
 app.post("/api/notes", (req, res) => { //post req to add a note
     console.log(req.body)
-    fs.readFile("./db/db.json", "utf-8", (err, data) => {
-        let notes = JSON.parse(data) // creates array of notes
+    let notes = "";
+    fs.readFile("./db/db.json", (err, data) => {
+        notes = JSON.parse(data) // creates array of notes
+        console.log("notes",notes)
         let newNote = { // creates object with unique ID
             ...req.body,
             id: uniqid()
         }
-
+        notes.push(newNote);
+        fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
+            if (err) throw err
+        });
     }
     )
+    console.log(notes);
+    res.json(notes);
 })
 
 app.get('/', (req, res) =>  //homepage view route 

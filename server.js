@@ -20,10 +20,14 @@ app.get("/api/notes", (req, res) => {  // request & response to API notes
 })
 app.post("/api/notes", (req, res) => { //post req to add a note
     console.log(req.body)
-    let notes = "";
+    let notes = [];
     fs.readFile("./db/db.json", (err, data) => {
-        notes = JSON.parse(data) // creates array of notes
-        console.log("notes",notes)
+        console.log("data",data);
+        if (data.length) {
+            notes = JSON.parse(data) // creates array of notes
+        }
+        
+        console.log("notes", notes)
         let newNote = { // creates object with unique ID
             ...req.body,
             id: uniqid()
@@ -36,7 +40,25 @@ app.post("/api/notes", (req, res) => { //post req to add a note
     )
     console.log(notes);
     res.json(notes);
-})
+});
+
+// app.delete("/api/notes/:id", (req, res) => {
+//     const ID = req.params.id
+
+//     fs.readFileAsync("./db/db.json", (err, data) => {
+//         const notes = [].concat(JSON.parse(data)) //start with empty array and add anything from data to it
+        
+//         let newNote = notes.filter((note) => note.id !== ID) //filter out note with ID typed into URL   
+//         console.log("newNote", newNote);
+//         return newNote;
+//     })
+//         .then((arr) => { // newNote is passes to arr
+//             fs.writeFile("./db/db.json", JSON.stringify(arr), (err) => {  // writes to updated array
+//                 if (err) throw err
+//             });
+//     })
+    
+// });
 
 app.get('/', (req, res) =>  //homepage view route 
     res.sendFile(path.join(__dirname, '/public/index.html')) //sends user the index.html (homepage)

@@ -5,13 +5,14 @@
 The application is called Note Taker and can be used to write and save notes. This application uses an Express.js back end and saves and retrieves data from a db.json file.
 
 ## Visuals
+http://localhost:3001/notes
 
-
+<../../../Note Taker screen.pdf>
 ## Installation
-
+None
 
 ## Usage
-Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.
+Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.  Enter your title, tab down to the notes and then click save in the upper right.  Deletion is not yet supported (working on it though).
 
 ## Support
 Please reach out to me with any questions - matt@mmcprintpackaging.com
@@ -23,8 +24,6 @@ Please reach out to me with any questions - matt@mmcprintpackaging.com
 ## Contributing
 Open to suggestions.
 
-* `DELETE /api/notes/:id` should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
-
 ## Authors & Acknowledgement
 Myself and UCLA tutors and Bootcamp lessons
 
@@ -33,18 +32,3 @@ N/A
 
 ## Project Status
 Ongoing and will be updated with new/relavent info as needed.
-
-
-
-
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
-- - -
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.

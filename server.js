@@ -42,7 +42,7 @@ app.post("/api/notes", (req, res) => { //post req to add a note
     res.json(notes);
 });
 
-app.delete("/api/notes/:id", (req, res) => {
+app.delete("/api/notes/:id", (req, res) => { // deletes the note with an ID equal to req.params.id
     const ID = req.params.id
 
     fs.readFile("./db/db.json", (err, data) => {

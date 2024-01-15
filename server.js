@@ -42,23 +42,22 @@ app.post("/api/notes", (req, res) => { //post req to add a note
     res.json(notes);
 });
 
-// app.delete("/api/notes/:id", (req, res) => {
-//     const ID = req.params.id
+app.delete("/api/notes/:id", (req, res) => {
+    const ID = req.params.id
 
-//     fs.readFileAsync("./db/db.json", (err, data) => {
-//         const notes = [].concat(JSON.parse(data)) //start with empty array and add anything from data to it
-        
-//         let newNote = notes.filter((note) => note.id !== ID) //filter out note with ID typed into URL   
-//         console.log("newNote", newNote);
-//         return newNote;
-//     })
-//         .then((arr) => { // newNote is passes to arr
-//             fs.writeFile("./db/db.json", JSON.stringify(arr), (err) => {  // writes to updated array
-//                 if (err) throw err
-//             });
-//     })
-    
-// });
+    fs.readFile("./db/db.json", (err, data) => {
+        const notes = JSON.parse(data) // parse data array back into object
+
+        let newNote = notes.filter((note) => note.id !== ID) //filter out note with ID typed into URL   
+        console.log("newNote", newNote);
+
+        fs.writeFile("./db/db.json", JSON.stringify(newNote), (err) => {  // writes to updated array
+            if (err) throw err
+            res.json(newNote)
+        });
+    })
+
+});
 
 app.get('/', (req, res) =>  //homepage view route 
     res.sendFile(path.join(__dirname, '/public/index.html')) //sends user the index.html (homepage)

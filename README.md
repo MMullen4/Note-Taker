@@ -5,8 +5,11 @@
 The application is called Note Taker and can be used to write and save notes. This application uses an Express.js back end and saves and retrieves data from a db.json file.
 
 ## Visuals
-![NoteTaker Home](./public/assets/homepage.png)
+
 ![NoteTaker Notes](./public/assets/notepage.png)
+![NoteTaker Home](./public/assets/homepage.png)
+
+
 
 ## Installation
 None

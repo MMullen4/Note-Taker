@@ -46,7 +46,7 @@ app.delete("/api/notes/:id", (req, res) => { // deletes the note with an ID equa
     const ID = req.params.id
 
     fs.readFile("./db/db.json", (err, data) => {
-        const notes = JSON.parse(data) // parse data array back into object
+        const notes = JSON.parse(data) // parse data array back into array of objects
 
         let newNote = notes.filter((note) => note.id !== ID) //filter out note with ID typed into URL   
         console.log("newNote", newNote);
